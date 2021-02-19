@@ -4,14 +4,14 @@ import { Waypoint } from 'react-waypoint';
 import { useSWRInfinite } from 'swr';
 import { fetchUnplashImages } from '../api/axios';
 import Gallery from '../components/Gallery';
-
+import { DiGithubBadge } from 'react-icons/di';
 
 const getKey = (pageIndex: number, previousPageData: any) => {
     if (previousPageData && !previousPageData.length) return null // reached the end
     return `photos?page=${pageIndex + 1}`                    // SWR key
   }
 
-const MainPage2: React.FC = () => {
+const MainPage: React.FC = () => {
     const { data, size, setSize } = useSWRInfinite(getKey, fetchUnplashImages)
 
     if(!data) return <div className="loader"><ScaleLoader height={20} width={4} radius={2} margin={2} /></div>
@@ -19,7 +19,8 @@ const MainPage2: React.FC = () => {
     return (
             <div className='main-page-wrapper' >
                 <div className='heading container' >
-                    <h1>Unswish.</h1>
+                    <a href='/' ><h1>Unswish.</h1></a>
+                    <a href='https://github.com/kitharvey/unswish/' target='_blank'  rel="noreferrer" ><DiGithubBadge/></a>
                 </div>
                 <div className='gallery-wrapper container' >
                     <Gallery imagesArray={data.flat()} />
@@ -37,4 +38,4 @@ const MainPage2: React.FC = () => {
 }
 
 
-export default MainPage2
+export default MainPage

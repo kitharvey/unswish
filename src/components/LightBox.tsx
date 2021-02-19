@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import { wrap } from "popmotion";
 import { AnimatePresence, motion } from 'framer-motion';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAngleLeft, faAngleRight, faHeart, faTimes } from '@fortawesome/free-solid-svg-icons'
 import { ImageProps } from '../types/globalTypes';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-
+import { IoClose } from 'react-icons/io5';
+import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
+import { AiFillHeart  } from 'react-icons/ai';
+import { ScaleLoader } from 'react-spinners';
 interface LightBoxProps {
     images: ImageProps[]
     initialPage: number
@@ -74,7 +75,7 @@ const LightBox: React.FC<LightBoxProps> = ({images, initialPage, setshowModal}) 
                 >
                     <div className='slide-image-wrapper' >
                         <LazyLoadImage
-                                alt={images[imageIndex].alt_description}
+                                alt={images[imageIndex].alt_description ? images[imageIndex].alt_description : images[imageIndex].description}
                                 effect="blur"
                                 src={images[imageIndex].urls.full}
                                 draggable="false" 
@@ -82,19 +83,20 @@ const LightBox: React.FC<LightBoxProps> = ({images, initialPage, setshowModal}) 
                             />
                         <p className='name' >{images[imageIndex].user?.name}</p>
                         <p className='date' >{images[imageIndex].created_at.split('T')[0]}</p>
-                        <p className='likes' ><FontAwesomeIcon icon={faHeart} />&nbsp;&nbsp;{images[imageIndex].likes}</p>
+                        <p className='likes' ><AiFillHeart/>&nbsp;&nbsp;{images[imageIndex].likes}</p>
                     </div>
+                    <ScaleLoader color='#FFF' height={20} width={4} radius={2} margin={2} />
 
                 </motion.div>
                 </AnimatePresence>
                 <div className="next" onClick={() => paginate(1)}>
-                    <FontAwesomeIcon icon={faAngleRight} />
+                    <IoIosArrowForward />
                 </div>
                 <div className="prev" onClick={() => paginate(-1)}>
-                    <FontAwesomeIcon icon={faAngleLeft} />
+                    <IoIosArrowBack />
                 </div>
                 <div className="close" onClick={() => setshowModal(false)}>
-                    <FontAwesomeIcon icon={faTimes} />
+                    <IoClose />
                 </div>
             </div>
         );

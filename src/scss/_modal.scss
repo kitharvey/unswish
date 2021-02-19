@@ -17,11 +17,20 @@ $pad: 10px;
         align-items: center;
         justify-content: center;
 
+        .css-0{
+            position: absolute;
+            z-index: 0;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
         .slide-image-wrapper{
             position: relative;
             height: max-content;
             width: max-content;
             transition: all .25s ease-in-out;
+            z-index: 2;
             &:hover{
                 img{
                     filter: brightness(80%);
@@ -41,11 +50,14 @@ $pad: 10px;
                 visibility: hidden;
                 opacity: 0;
                 transition: all .25s ease-in-out;
+                font-size: .75rem;
             }
 
             .name{
                 top: $pad;
                 left: $pad;
+                font-weight: black;
+                font-size: 1.25rem;
             }
             .date{
                 bottom: $pad;
@@ -54,6 +66,8 @@ $pad: 10px;
             .likes{
                 bottom: $pad;
                 left: $pad;
+                display: flex;
+                align-items: center;
             }
         }
 

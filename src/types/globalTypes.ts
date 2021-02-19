@@ -5,7 +5,7 @@ export interface ImageProps {
     color: string
     created_at: string
     current_user_collections: any[]
-    description: null | any
+    description: string
     height: number
     id: string
     liked_by_user: boolean

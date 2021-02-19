@@ -22,6 +22,7 @@ const Gallery: React.FC<GalleryProps> = ({imagesArray}) => {
         }
     }, [showModal])
 
+    console.log(imagesArray)
         return (
             <div className="gallery">
                     {imagesArray && imagesArray.map( (image, index) => {
@@ -35,7 +36,7 @@ const Gallery: React.FC<GalleryProps> = ({imagesArray}) => {
                                 }}
                             >
                                 <LazyLoadImage
-                                    alt={image.alt_description}
+                                    alt={image.alt_description ? image.alt_description : image.description}
                                     effect="blur"
                                     src={image.urls.thumb}
                                     draggable="false" 

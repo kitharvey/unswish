@@ -6,6 +6,24 @@
 
 .heading{
     padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    a{
+        text-decoration: none;
+        color: currentColor;
+    }
+    svg{
+        margin-left: 10px;
+        width: 30px;
+        height: 30px;
+    }
+    svg, h1{
+        transition: all .15s;
+        cursor: pointer;
+        &:hover{
+            transform: translateY(-5px);
+        }
+    }
 }
 
 .container{
