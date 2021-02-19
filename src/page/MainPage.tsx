@@ -4,7 +4,6 @@ import { Waypoint } from 'react-waypoint';
 import { useSWRInfinite } from 'swr';
 import { fetchUnplashImages } from '../api/axios';
 import Gallery from '../components/Gallery';
-import { DiGithubBadge } from 'react-icons/di';
 
 const getKey = (pageIndex: number, previousPageData: any) => {
     if (previousPageData && !previousPageData.length) return null // reached the end
@@ -18,10 +17,6 @@ const MainPage: React.FC = () => {
 
     return (
             <div className='main-page-wrapper' >
-                <div className='heading container' >
-                    <a href='/' ><h1>Unswish.</h1></a>
-                    <a href='https://github.com/kitharvey/unswish/' target='_blank'  rel="noreferrer" ><DiGithubBadge/></a>
-                </div>
                 <div className='gallery-wrapper container' >
                     <Gallery imagesArray={data.flat()} />
                 </div>
