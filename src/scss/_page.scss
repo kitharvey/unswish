@@ -1,0 +1,29 @@
+.loader{
+    width: 50px;
+    height: 50px;
+    margin: 40px auto;
+}
+
+.heading{
+    padding: 20px 40px;
+}
+
+.container{
+    width: 100%;
+    margin: 0 auto;
+    @media screen and (min-width: 640px) {
+        max-width: 640px;
+    }
+    @media screen and (min-width: 768px) {
+        max-width: 768px;
+    }
+    @media screen and (min-width: 1024px) {
+        max-width: 1024px;
+    }
+    @media screen and (min-width: 1280px) {
+        max-width: 1280px;
+    }
+    @media screen and (min-width: 1536px) {
+        max-width: 1536px;
+    }
+}
