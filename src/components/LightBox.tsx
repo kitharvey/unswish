@@ -56,6 +56,12 @@ const LightBox: React.FC<LightBoxProps> = ({images, initialPage, setshowModal}) 
                     initial="enter"
                     animate="center"
                     exit="exit"
+                    whileHover={{
+                      cursor: 'grab'
+                    }}
+                    whileTap={{
+                      cursor: 'grabbing'
+                    }}
                     transition={{
                     x: { type: "spring", stiffness: 300, damping: 30 },
                     opacity: { duration: 0.2 }
