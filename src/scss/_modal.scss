@@ -116,6 +116,13 @@ $pad: 10px;
     left: 10px;
     }
 
+    .next, .prev{
+        display: flex;
+        @media screen and (max-width: 768px) {
+            display: none;
+        }
+    }
+
     .close{
         top: 10px;
         right: 10px;
